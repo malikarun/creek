@@ -134,7 +134,7 @@ module Creek
               elsif ["#{prefix}v", "#{prefix}t"].include?(node.name) && node.node_type == opener
                 unless cell.nil?
                   node.read
-                  raise unless node.name == '#text'
+                  raise unless (node.name == '#text' || node.inner_xml == '')
                   cells[cell] = node.value
                 end
               end
